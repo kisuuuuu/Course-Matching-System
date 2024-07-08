@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="matched-container">
+    <h2>MATCHED SUBJECTS</h2>
+</div>
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>STRAND</th>
+                <th>SUBJECT</th>
+                <th>SECTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for strand, subjects in result.items() %}
+                {% for subject, tags in subjects.items() %}
+                    <tr>
+                        <td>{{ strand }}</td>
+                        <td>{{ subject }}</td>
+                        <td>TBA</td>
+                    </tr>
+                {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="button-container">
+    <a href="{{ url_for('form') }}" class="btn">Back to Form</a>
+</div>
+{% endblock %}
